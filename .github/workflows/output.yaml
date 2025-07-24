@@ -1,11 +1,10 @@
-name: CI Workflow
+name: Output
 
 on: issues
 
 jobs:
-  echp:
+  echo:
     runs-on: ubuntu-latest
-
     steps:
       - name: echo info
-        run: echo ${{ toJson(github) }}
+        run: echo "${{ toJson(github.event) }}"
