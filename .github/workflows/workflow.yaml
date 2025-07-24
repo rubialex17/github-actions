@@ -16,17 +16,13 @@ jobs:
           node-version: '18'
 
       - name: install-dependencies
-        needs: setup-node
         run: npm install
 
       - name: lint
-        needs: install-dependencies
         run: npm run lint
 
       - name: tests
-        needs: lint
         run: npm run test
       
       - name: Build
-        needs: tests
         run: npm run build
