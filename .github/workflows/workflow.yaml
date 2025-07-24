@@ -15,18 +15,18 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies
+      - name: install-dependencies
         needs: setup-node
         run: npm install
 
-      - name: Run lint
-        needs: Install dependencies
+      - name: lint
+        needs: install-dependencies
         run: npm run lint
 
-      - name: Run tests
-        needs: Run lint
+      - name: tests
+        needs: lint
         run: npm run test
       
       - name: Build
-        needs: Run tests
+        needs: tests
         run: npm run build
